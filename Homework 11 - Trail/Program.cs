@@ -19,11 +19,11 @@ namespace Homework_11___Trail
             drawGrid(grid);
 
             //Set Intital Position
-            int currentX = 0;
-            int currentY = 0;
+            int currentX = 2;
+            int currentY = 2;
 
             //Set Initial Direction
-            int faceing = 0;   //0 east 1 south 2 west 3 north
+            int faceing = 3;   //0 east 1 south 2 west 3 north
 
             //Get Inputs
             Console.WriteLine("How long do you want the trail?");
@@ -62,7 +62,16 @@ namespace Homework_11___Trail
                     int tried = 0;
                     while (valid == false && tried != 4)
                     {
-                        if (currentY == 0 || currentY == 4 || currentX == 0 || currentX == 4)
+                        if ((faceing == 3 && currentY == 0) || (faceing == 1 && currentY == 4) || (faceing == 2 && currentX == 0) || (faceing == 0 && currentX == 4))
+                        {
+                            faceing++;
+                            if (faceing == 4)
+                            {
+                                faceing = 0;
+                            }
+                            tried++;
+                        }
+                        else if ((faceing == 3 && grid[currentY - 1, currentX] > 0) || (faceing == 1 && grid[currentY + 1, currentX] > 0) || (faceing == 2 && grid[currentY, currentX - 1] > 0) || (faceing == 0 && grid[currentY, currentX + 1] > 0))
                         {
                             faceing++;
                             if (faceing == 4)
@@ -108,7 +117,16 @@ namespace Homework_11___Trail
                     int tried = 0;
                     while (valid == false && tried != 4)
                     {
-                        if (currentY == 0 || currentY == 4 || currentX == 0 || currentX == 4)
+                        if ((faceing == 3 && currentY == 0) || (faceing == 1 && currentY == 4) || (faceing == 2 && currentX == 0) || (faceing == 0 && currentX == 4))
+                        {
+                            faceing++;
+                            if (faceing == 4)
+                            {
+                                faceing = 0;
+                            }
+                            tried++;
+                        }
+                        else if ((faceing == 3 && grid[currentY - 1, currentX] > 0) || (faceing == 1 && grid[currentY + 1, currentX] > 0) || (faceing == 2 && grid[currentY, currentX - 1] > 0) || (faceing == 0 && grid[currentY, currentX + 1] > 0))
                         {
                             faceing++;
                             if (faceing == 4)
@@ -150,7 +168,16 @@ namespace Homework_11___Trail
                     int tried = 0;
                     while (valid == false && tried != 4)
                     {
-                        if (currentY == 0 || currentY == 4 || currentX == 0 || currentX == 4)
+                        if ((faceing == 3 && currentY == 0) || (faceing == 1 && currentY == 4) || (faceing == 2 && currentX == 0) || (faceing == 0 && currentX == 4))
+                        {
+                            faceing++;
+                            if (faceing == 4)
+                            {
+                                faceing = 0;
+                            }
+                            tried++;
+                        }
+                        else if ((faceing == 3 && grid[currentY - 1, currentX] > 0) || (faceing == 1 && grid[currentY + 1, currentX] > 0) || (faceing == 2 && grid[currentY, currentX - 1] > 0) || (faceing == 0 && grid[currentY, currentX + 1] > 0))
                         {
                             faceing++;
                             if (faceing == 4)
@@ -188,10 +215,9 @@ namespace Homework_11___Trail
 
 
                 drawGrid(grid);
+                Console.WriteLine("--------");
             }
-
-
-
+            Console.WriteLine("x: " + currentX + " y: " + currentY);
 
             Console.ReadLine();
         }
