@@ -24,7 +24,7 @@ namespace Homework_11___Trail
 
             //Set Initial Direction
             int faceing = 0;   //0 east 1 south 2 west 3 north
-     
+
             //Get Inputs
             Console.WriteLine("How long do you want the trail?");
             int trail = Convert.ToInt32(Console.ReadLine());
@@ -58,26 +58,44 @@ namespace Homework_11___Trail
                     {
                         faceing = 0;
                     }
-                    //UPDATE CURRENT GRID VALUE  
-                    grid[currentY, currentX] = trail;
-                    if (faceing == 0)
+                    bool valid = false;
+                    int tried = 0;
+                    while (valid == false && tried != 4)
                     {
-                        currentX++;
+                        if (currentY == 0 || currentY == 4 || currentX == 0 || currentX == 4)
+                        {
+                            faceing++;
+                            if (faceing == 4)
+                            {
+                                faceing = 0;
+                            }
+                            tried++;
+                        }
+                        else
+                        {
+                            valid = true;
+                            //UPDATE CURRENT GRID VALUE  
+                            grid[currentY, currentX] = trail;
+                            if (faceing == 0)
+                            {
+                                currentX++;
+                            }
+                            if (faceing == 1)
+                            {
+                                currentY++;
+                            }
+                            if (faceing == 2)
+                            {
+                                currentX--;
+                            }
+                            if (faceing == 3)
+                            {
+                                currentY--;
+                            }
+                            //***DO THIS FOR EACH DIRECTION ***
+                            //Need to deal with edges
+                        }
                     }
-                    if (faceing == 1)
-                    {
-                        currentY++;
-                    }
-                    if (faceing == 2)
-                    {
-                        currentX--;
-                    }
-                    if (faceing == 3)
-                    {
-                        currentY--;
-                    }
-                    //***DO THIS FOR EACH DIRECTION ***
-                    //Need to deal with edges
                 }
                 if (pattern[i % pattern.Length] == 'L')
                 {
@@ -86,55 +104,95 @@ namespace Homework_11___Trail
                     {
                         faceing = 3;
                     }
-                    //UPDATE CURRENT GRID VALUE  
-                    grid[currentY, currentX] = trail;
-                    if (faceing == 0)
+                    bool valid = false;
+                    int tried = 0;
+                    while (valid == false && tried != 4)
                     {
-                        currentX++;
+                        if (currentY == 0 || currentY == 4 || currentX == 0 || currentX == 4)
+                        {
+                            faceing++;
+                            if (faceing == 4)
+                            {
+                                faceing = 0;
+                            }
+                            tried++;
+                        }
+                        else
+                        {
+                            valid = true;
+                            //UPDATE CURRENT GRID VALUE  
+                            grid[currentY, currentX] = trail;
+                            if (faceing == 0)
+                            {
+                                currentX++;
+                            }
+                            if (faceing == 1)
+                            {
+                                currentY++;
+                            }
+                            if (faceing == 2)
+                            {
+                                currentX--;
+                            }
+                            if (faceing == 3)
+                            {
+                                currentY--;
+                            }
+                            //***DO THIS FOR EACH DIRECTION ***
+                            //Need to deal with edges
+                        }
                     }
-                    if (faceing == 1)
-                    {
-                        currentY++;
-                    }
-                    if (faceing == 2)
-                    {
-                        currentX--;
-                    }
-                    if (faceing == 3)
-                    {
-                        currentY--;
-                    }
-                    //***DO THIS FOR EACH DIRECTION ***
-                    //Need to deal with edges
                 }
 
                 if (pattern[i % pattern.Length] == 'F')
                 {
-                    //UPDATE CURRENT GRID VALUE  
-                    grid[currentY, currentX] = trail;
-                    if (faceing == 0)
+                    bool valid = false;
+                    int tried = 0;
+                    while (valid == false && tried != 4)
                     {
-                        currentX++;
+                        if (currentY == 0 || currentY == 4 || currentX == 0 || currentX == 4)
+                        {
+                            faceing++;
+                            if (faceing == 4)
+                            {
+                                faceing = 0;
+                            }
+                            tried++;
+                        }
+                        else
+                        {
+                            valid = true;
+                            //UPDATE CURRENT GRID VALUE  
+                            grid[currentY, currentX] = trail;
+                            if (faceing == 0)
+                            {
+                                currentX++;
+                            }
+                            if (faceing == 1)
+                            {
+                                currentY++;
+                            }
+                            if (faceing == 2)
+                            {
+                                currentX--;
+                            }
+                            if (faceing == 3)
+                            {
+                                currentY--;
+                            }
+                            //***DO THIS FOR EACH DIRECTION ***
+                            //Need to deal with edges
+                        }
                     }
-                    if (faceing == 1)
-                    {
-                        currentY++;
-                    }
-                    if (faceing == 2)
-                    {
-                        currentX--;
-                    }
-                    if (faceing == 3)
-                    {
-                        currentY--;
-                    }
-                    //***DO THIS FOR EACH DIRECTION ***
-                    //Need to deal with edges
                 }
 
-                
+
                 drawGrid(grid);
             }
+
+
+
+
             Console.ReadLine();
         }
         static void drawGrid(int[,] grid)
